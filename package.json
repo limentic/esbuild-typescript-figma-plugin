@@ -1,0 +1,29 @@
+{
+  "name": "esbuild-typescript-figma",
+  "version": "1.0.0",
+  "description": "esbuild-typescript-figma",
+  "scripts": {
+    "test": "npm run tsc && npm run build",
+    "format": "prettier --write .",
+    "tsc": "npm run tsc:main && npm run tsc:ui",
+    "tsc:main": "tsc --noEmit -p plugin-src",
+    "tsc:ui": "tsc --noEmit -p ui-src",
+    "build": "npm run build:ui && npm run build:main -- --minify",
+    "build:main": "esbuild plugin-src/code.ts --bundle --outfile=dist/code.js",
+    "build:ui": "node ./build.js",
+    "dev": "nodemon --watch plugin-src --watch ui-src --exec \"npm run build:main -- --minify && npm run build:ui\""
+  },
+  "license": "MIT License",
+  "dependencies": {
+    "@types/tmp": "^0.2.6",
+    "copyfiles": "^2.4.1",
+    "tmp": "^0.2.3"
+  },
+  "devDependencies": {
+    "@figma/plugin-typings": "*",
+    "nodemon": "*",
+    "esbuild": "^0.19.7",
+    "prettier": "^3.1.0",
+    "typescript": "^5.3.2"
+  }
+}

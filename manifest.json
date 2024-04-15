@@ -1,0 +1,13 @@
+{
+  "name": "ESBuild Typescript Figma",
+  "id": "esbuild-typescript-figma",
+  "api": "1.0.0",
+  "editorType": ["figma", "figjam"],
+  "permissions": [],
+  "main": "dist/code.js",
+  "ui": "dist/index.html",
+  "networkAccess": {
+    "allowedDomains": ["https://picsum.photos", "https://fastly.picsum.photos"]
+  },
+  "documentAccess": "dynamic-page"
+}
